@@ -1,0 +1,94 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./styles.css">
+    <script>
+        function loadTheme() {
+            const theme = localStorage.getItem('theme') || 'light';
+            document.documentElement.classList.toggle('dark', theme === 'dark');
+        }
+
+        function toggleTheme() {
+            const isDark = document.documentElement.classList.toggle('dark');
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        }
+
+        document.addEventListener("DOMContentLoaded", loadTheme);
+    </script>
+</head>
+<body class="bg-zinc-100 text-zinc-900 dark:bg-zinc-900 dark:text-zinc-100 min-h-screen flex flex-col items-center justify-center p-4">
+    <div class="max-w-md w-full space-y-4">
+        <h1 class="text-4xl font-bold text-center text-primary">💖 Cutie Calculator 💖</h1>
+        <p id="subtitle" class="text-center text-muted-foreground">
+            (Because math should be adorable 🥺✨)
+        </p>
+        
+        <!-- Calculator Switcher -->
+        <div class="flex justify-center gap-4 mt-4">
+            <button id="switchToMath" class="bg-blue-500 text-white px-4 py-2 rounded">🔢 (Math)</button>
+            <button id="switchToLove" class="bg-pink-500 text-white px-4 py-2 rounded">❤️ (Love Meter)</button>
+        </div>
+
+        <!-- Haruka: Math Calculator -->
+        <div id="mathCalculator" class="bg-zinc-200 dark:bg-zinc-800 p-6 rounded-lg shadow-lg border border-zinc-400 dark:border-zinc-700">
+            <input type="text" id="display" class="w-full p-4 text-right text-2xl bg-zinc-300 dark:bg-zinc-700 rounded-md mb-4 text-zinc-900 dark:text-zinc-100" readonly>
+            <div class="grid grid-cols-4 gap-2">
+                <button onclick="press('7')">7</button>
+                <button onclick="press('8')">8</button>
+                <button onclick="press('9')">9</button>
+                <button onclick="press('/')">➗</button>
+                <button onclick="press('4')">4</button>
+                <button onclick="press('5')">5</button>
+                <button onclick="press('6')">6</button>
+                <button onclick="press('*')">✖️</button>
+                <button onclick="press('1')">1</button>
+                <button onclick="press('2')">2</button>
+                <button onclick="press('3')">3</button>
+                <button onclick="press('-')">➖</button>
+                <button onclick="press('0')">0</button>
+                <button onclick="press('.')">.</button>
+                <button onclick="calculate()">💖</button>
+                <button onclick="press('+')">➕</button>
+            </div>
+            <div class="grid grid-cols-2 gap-2 mt-2">
+                <button onclick="clearDisplay()">💔 AC</button>
+                <button onclick="toggleTheme()">🌙 / ☀️</button>
+            </div>
+        </div>
+
+        <!-- Love Meter -->
+        <div id="loveCalculator" class="hidden bg-zinc-200 dark:bg-zinc-800 p-6 rounded-lg shadow-lg border border-zinc-400 dark:border-zinc-700">
+            <input type="text" id="name1" placeholder="Your Name" class="w-full p-3 mb-2 bg-zinc-300 dark:bg-zinc-700 text-zinc-900 dark:text-zinc-100 rounded">
+            <input type="text" id="name2" placeholder="Their Name" class="w-full p-3 mb-4 bg-zinc-300 dark:bg-zinc-700 text-zinc-900 dark:text-zinc-100 rounded">
+            <button onclick="calculateLove()" class="bg-pink-500 text-white px-4 py-2 w-full rounded">💘 Calculate Love</button>
+
+            <div id="loveResult" class="text-center text-lg mt-4"></div>
+
+            <!-- Love Meter -->
+            <div id="loveMeter" class="w-full bg-zinc-300 dark:bg-zinc-700 rounded-full h-4 mt-4">
+                <div id="loveMeterFill" class="bg-red-500 h-4 rounded-full transition-all duration-500 ease-in-out" style="width: 0%"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="mt-10 text-center text-muted-foreground">
+        Made with 💕 by <a href="https://wtf-haruka.vercel.app/" class="text-primary">Haruka</a> | <a href="https://github.com/kyrexiii" class="text-primary">GitHub</a>
+    </footer>
+
+    <script>
+        
+    </script>
+    <script>
+
+    </script>
+    <!-- Scripts -->
+    <script src="theme.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
